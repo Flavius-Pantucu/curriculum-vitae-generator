@@ -1,38 +1,39 @@
-// curriculumData.js
-export const initialProfileImage = "images/profile.jpeg";
-export const initialPhoneNumber = "+40 754 333 785";
-export const initialEmail = "flaviuspantucu@icloud.com";
-export const initialAddress = "Craiova, Romania";
+// src/data/curriculumData.js
+
+export const initialProfileImage = "images/profile-placeholder.png";
+export const initialPhoneNumber = "+1 234 567 8901";
+export const initialEmail = "example@email.com";
+export const initialAddress = "City, Country";
 
 export const initialEducation = [
   {
-    degree: "Bachelor of Computers and Information Technology",
-    institution: 'Military Technical Academy "Ferdinand I" Bucharest',
-    year: "2017 - 2021",
+    degree: "Bachelor of Computer Science",
+    institution: "Tech University",
+    year: "2015 - 2019",
   },
   {
-    degree: "Masters of Information Technology Security",
-    institution: 'Military Technical Academy "Ferdinand I" Bucharest',
-    year: "2021 - 2023",
+    degree: "Master of Software Engineering",
+    institution: "Global Institute of Technology",
+    year: "2019 - 2021",
   },
 ];
 
 export const initialExpertise = [
-  "JavaScript, TypeScript",
-  "Java Spring, C# .NET",
-  "React, Angular",
-  "PostgreSQL, PL/SQL",
-  "AWS, Docker",
-  "Git, CI/CD",
+  "JavaScript & TypeScript",
+  "Frontend frameworks",
+  "Backend development",
+  "SQL & databases",
+  "Cloud & containers",
+  "Version control & CI/CD",
 ];
 
 export const initialLanguages = [
-  { name: "Romanian", fluency: "Native" },
   { name: "English", fluency: "Fluent" },
-  { name: "Japanese", fluency: "Conversational" },
+  { name: "Spanish", fluency: "Conversational" },
+  { name: "German", fluency: "Basic" },
 ];
 
-export const initialFullName = "Flavius Panțucu";
+export const initialFullName = "John Doe";
 export const initialJobTitle = "Full-Stack Developer";
 export const initialProfileDescription =
   "I’m a full-stack developer passionate about building smooth, reliable applications using modern technologies. I enjoy tackling challenges across the entire stack—from crafting intuitive user interfaces to designing efficient back-end solutions. Always eager to learn and adapt, I focus on writing clean, maintainable code and delivering products that make a real difference.";
@@ -40,33 +41,33 @@ export const initialProfileDescription =
 export const initialExperience = [
   {
     jobTitle: "Full-Stack Developer",
-    company: "NetRom Software",
-    years: "June 2025 - Present",
+    company: "Tech Solutions Inc.",
+    years: "June 2023 - Present",
     description:
-      "Developing and maintaining web applications using React and Node.js.",
+      "Developed and maintained scalable web applications with modern JavaScript frameworks.",
   },
   {
-    jobTitle: "Full-Stack Developer",
-    company: "Advanced Technologies Institute",
-    years: "August 2021 - May 2025",
+    jobTitle: "Software Engineer",
+    company: "Digital Dynamics",
+    years: "August 2020 - May 2023",
     description:
-      "Assisted in the development of internal tools and applications.",
+      "Worked on backend services and collaborated with frontend teams to build full-stack features.",
   },
 ];
 
 export const initialReferences = [
   {
-    name: "Alexandru-Gabriel Pencu",
-    title: "Senior QA Engineer",
-    company: "Betfair Romania Development",
-    email: "pencu_alex701@yahoo.com",
-    phone: "+40 764 233 742",
+    name: "Jane Smith",
+    title: "Senior Software Engineer",
+    company: "Innovatech",
+    email: "jane.smith@example.com",
+    phone: "+1 345 678 9012",
   },
   {
-    name: "Alexandru-Nicolae Berceanu",
-    title: "Information Security Analyst",
-    company: "SecureWorks",
-    email: "alex.berceanu@yahoo.com",
-    phone: "+40 766 090 048",
+    name: "Mark Johnson",
+    title: "Engineering Manager",
+    company: "CodeCraft Labs",
+    email: "mark.johnson@example.com",
+    phone: "+1 456 789 0123",
   },
 ];
