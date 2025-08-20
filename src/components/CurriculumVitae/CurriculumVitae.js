@@ -19,7 +19,7 @@ export const CurriculumVitae = () => {
           </div>
         </div>
       </div>
-      <footer className="fixed bottom-2 right-1/2 text-sm text-gray-400 pointer-events-none select-none">
+      <footer className="fixed bottom-2 right-1/2 transform translate-x-1/2 text-sm text-gray-400 pointer-events-none select-none">
         © 2025 Flavius Panțucu. All rights reserved.
       </footer>
     </div>

@@ -59,7 +59,13 @@ export const Languages = ({ languages, setLanguages }) => {
           )}
         </div>
       ))}
-      <Button variant="filled" color="green" onClick={handleAdd} block>
+      <Button
+        variant="filled"
+        disabled={languages.length === 3}
+        color="green"
+        onClick={handleAdd}
+        block
+      >
         Add Language
       </Button>
     </div>

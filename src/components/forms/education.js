@@ -66,7 +66,14 @@ export const Education = ({ education, setEducation }) => {
           )}
         </div>
       ))}
-      <Button variant="filled" color="green" onClick={handleAdd} block>
+
+      <Button
+        variant="filled"
+        disabled={education.length === 3}
+        color="green"
+        onClick={handleAdd}
+        block
+      >
         Add Education
       </Button>
     </div>

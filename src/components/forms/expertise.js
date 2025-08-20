@@ -10,7 +10,7 @@ export const Expertise = ({ expertise, setExpertise }) => (
           <Input
             size="large"
             showCount
-            maxLength={50}
+            maxLength={30}
             value={item}
             onChange={(e) => {
               const updated = [...expertise];
@@ -34,6 +34,7 @@ export const Expertise = ({ expertise, setExpertise }) => (
     <Button
       variant="filled"
       color="green"
+      disabled={expertise.length === 6}
       className="mt-2"
       onClick={() => setExpertise([...expertise, ""])}
       block
