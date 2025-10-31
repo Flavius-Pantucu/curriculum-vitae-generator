@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export const CvPreview = (props) => {
   const A4_WIDTH = 794;
   const A4_HEIGHT = 1123;
-  const PADDING = 32;
+  const PADDING_TOP = 64;
 
   const [scale, setScale] = useState(1);
 
@@ -13,8 +13,8 @@ export const CvPreview = (props) => {
     const newScale = Math.min(
       1,
       Math.min(
-        (document.documentElement.clientWidth - PADDING) / A4_WIDTH,
-        (document.documentElement.clientHeight - PADDING) / A4_HEIGHT
+        document.documentElement.clientWidth / A4_WIDTH,
+        (document.documentElement.clientHeight - PADDING_TOP) / A4_HEIGHT
       )
     );
     setScale(newScale);

@@ -9,6 +9,7 @@ import {
   Languages,
   References,
 } from "../forms";
+import { PdfExportButton } from "./PdfExportButton";
 
 export const CvTabs = (props) => {
   const items = [
@@ -102,5 +103,14 @@ export const CvTabs = (props) => {
     },
   ];
 
-  return <Tabs defaultActiveKey="1" items={items} />;
+  return (
+    <div className="flex flex-col h-full gap-y-2">
+      <div className="flex-grow overflow-auto">
+        <Tabs defaultActiveKey="1" items={items} />
+      </div>
+      <div className="flex justify-center py-4">
+        <PdfExportButton />
+      </div>
+    </div>
+  );
 };
