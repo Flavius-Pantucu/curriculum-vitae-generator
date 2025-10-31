@@ -1,4 +1,4 @@
-import { useCurriculumState } from "./useCurriculumState";
+import { useCurriculumState } from "@data/hooks/useCurriculumState";
 import { CvTabs } from "./CvTabs";
 import { CvPreview } from "./CvPreview";
 import { PdfExportButton } from "./PdfExportButton";

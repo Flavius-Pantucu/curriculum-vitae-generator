@@ -12,7 +12,7 @@ import {
   initialProfileDescription,
   initialExperience,
   initialReferences,
-} from "../../data/const.js";
+} from "../const/initialData.js";
 
 export const useCurriculumState = () => {
   const [profileImage, setProfileImage] = useState(initialProfileImage);

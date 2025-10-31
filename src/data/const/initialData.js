@@ -1,5 +1,3 @@
-// src/data/curriculumData.js
-
 export const initialProfileImage = "images/profile-placeholder.png";
 export const initialPhoneNumber = "+1 234 567 8901";
 export const initialEmail = "example@email.com";
