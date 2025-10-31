@@ -10,9 +10,23 @@ import {
   References,
 } from "../forms";
 import { PdfExportButton } from "./PdfExportButton";
+import { CvPreview } from "./CvPreview";
+import { useState, useEffect } from "react";
 
 export const CvTabs = (props) => {
-  const items = [
+  const [showPreviewTab, setShowPreviewTab] = useState(true);
+
+  useEffect(() => {
+    const checkWidth = () => {
+      setShowPreviewTab(window.innerWidth < 1280); // 1280px is the xl breakpoint
+    };
+
+    checkWidth(); // Check initially
+    window.addEventListener("resize", checkWidth);
+
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
+  const formTabs = [
     {
       key: "1",
       label: "Profile",
@@ -103,12 +117,23 @@ export const CvTabs = (props) => {
     },
   ];
 
+  const allTabs = showPreviewTab
+    ? [
+        ...formTabs,
+        {
+          key: "9",
+          label: "Preview",
+          children: <CvPreview {...props} />,
+        },
+      ]
+    : formTabs;
+
   return (
-    <div className="flex flex-col h-full gap-y-2">
-      <div className="flex-grow overflow-auto">
-        <Tabs defaultActiveKey="1" items={items} />
+    <div className="flex flex-col h-full">
+      <div className="flex-grow overflow-auto pb-4">
+        <Tabs defaultActiveKey="1" items={allTabs} />
       </div>
-      <div className="flex justify-center py-4">
+      <div className="flex justify-center py-4 border-t border-gray-600">
         <PdfExportButton />
       </div>
     </div>

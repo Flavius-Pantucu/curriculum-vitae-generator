@@ -6,14 +6,14 @@ export const CurriculumVitae = () => {
   const state = useCurriculumState();
 
   return (
-    <div className="w-full max-h-screen flex flex-row">
-      <div className="flex-1 py-8 px-12 relative overflow-x-scroll">
+    <div className="w-full h-screen flex flex-col xl:flex-row">
+      <div className="xl:flex-1 py-4 xl:py-8 px-4 xl:px-12 overflow-auto">
         <CvTabs {...state} />
       </div>
-      <div className="flex-1">
+      <div className="hidden xl:block xl:flex-1 xl:py-0">
         <CvPreview {...state} />
       </div>
-      <footer className="fixed bottom-2 right-1/2 transform translate-x-1/2 text-sm text-gray-400 pointer-events-none select-none">
+      <footer className="pb-1 text-center text-sm text-gray-400 pointer-events-none select-none fixed bottom-2 right-1/2 transform translate-x-1/2">
         © 2025 Flavius Panțucu. All rights reserved.
       </footer>
     </div>
