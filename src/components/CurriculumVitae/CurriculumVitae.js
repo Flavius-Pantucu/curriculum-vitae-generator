@@ -13,7 +13,7 @@ export const CurriculumVitae = () => {
       <div className="hidden xl:block xl:flex-1 xl:py-0">
         <CvPreview {...state} />
       </div>
-      <footer className="pb-1 text-center text-sm text-gray-400 pointer-events-none select-none fixed bottom-2 right-1/2 transform translate-x-1/2">
+      <footer className="text-center text-sm text-gray-400 pointer-events-none select-none fixed bottom-2 right-1/2 transform translate-x-1/2">
         © 2025 Flavius Panțucu. All rights reserved.
       </footer>
     </div>
