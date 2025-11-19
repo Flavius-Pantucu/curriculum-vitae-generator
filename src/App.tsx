@@ -1,7 +1,7 @@
 import { CurriculumVitae } from "./components/CurriculumVitae/CurriculumVitae";
 
 function App() {
-  return <CurriculumVitae />;
+    return <CurriculumVitae />;
 }
 
 export default App;
