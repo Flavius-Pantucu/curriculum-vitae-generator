@@ -4,20 +4,25 @@ import jsPDF from "jspdf";
 
 export function PdfExportButton() {
   const exportToPDF = () => {
-    const element = document.getElementById("cv-content");
+    const element = document.querySelector("#cv-content") as HTMLElement | null;
     if (!element) return;
+
+    let scale = element.parentElement?.style.transform;
+    element.parentElement!.style.transform = "scale(1)";
 
     html2canvas(element, {
       scale: 3,
       useCORS: true,
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/jpeg", 0.5); // JPEG with compression
-      const pdf = new jsPDF("p", "mm", "a4");
+      const imgData = canvas.toDataURL("image/jpeg", 1);
+      const pdf = new jsPDF("p", "px", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
       pdf.save("CV.pdf");
     });
+
+    element.parentElement!.style.transform = scale || "";
   };
 
   return (
