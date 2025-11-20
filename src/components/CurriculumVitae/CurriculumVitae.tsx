@@ -4,7 +4,7 @@ import { useCurriculumState } from "@data/hooks/useCurriculumState";
 import { ProfileTypesEnum } from "@data/enums/ProfileTypesEnum";
 
 export function CurriculumVitae() {
-  const state = useCurriculumState(ProfileTypesEnum.Personal);
+  const state = useCurriculumState(ProfileTypesEnum.Default);
 
   return (
     <div className="w-full h-screen flex flex-col xl:flex-row">
