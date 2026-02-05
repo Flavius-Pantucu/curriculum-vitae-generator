@@ -1,73 +1,207 @@
-# React + TypeScript + Vite
+# CV Builder Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete, production-ready TypeScript single-page web application for generating custom CVs/resumes with multiple professional templates.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Functionality
+- **Multiple Profiles**: Create, edit, save, switch, delete, and duplicate CV profiles
+- **Photo Upload**: Drag-drop or file picker with automatic resize and crop functionality
+- **8 Comprehensive Sections**: Personal info, Experience, Education, Skills, Projects, Certifications, Languages, and Hobbies
+- **5 Professional Templates**: 
+  - Classic (ATS-friendly, minimal design)
+  - Modern (color accents, clean cards)
+  - Creative (gradient sidebar, icons)
+  - Minimal (single column, spacious)
+  - Executive (2-column, premium typography)
 
-## React Compiler
+### Advanced Features
+- **Live Preview**: Real-time preview with photo rendering
+- **Multiple Export Formats**: PDF (A4/Letter), PNG, and Print-optimized
+- **Dark Mode**: System preference detection with manual toggle
+- **Keyboard Shortcuts**: 
+  - `Ctrl+S` - Save (auto-save enabled)
+  - `Ctrl+E` - Export PDF
+  - `Ctrl+P` - Print
+- **Data Persistence**: All data stored in localStorage with auto-save
+- **Responsive Design**: Mobile-first, fully responsive layout
+- **TypeScript**: 100% type-safe with no `any` types
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React 18.3** with TypeScript 5.6
+- **Vite 6.0** for blazing-fast development
+- **Tailwind CSS 4.0** for styling
+- **Zustand** for state management with persistence
+- **html2canvas + jsPDF** for PDF generation
+- **Lucide React** for icons
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+cv-builder-pro/
+├── src/
+│   ├── types/              # TypeScript type definitions
+│   │   └── cv.types.ts
+│   ├── stores/             # Zustand state management
+│   │   └── useCVStore.ts
+│   ├── components/         # React components
+│   │   ├── PhotoUploader.tsx
+│   │   ├── ProfileManager.tsx
+│   │   ├── TemplateSelector.tsx
+│   │   ├── SectionForms.tsx
+│   │   ├── TemplatePreview.tsx
+│   │   └── ExportButtons.tsx
+│   ├── templates/          # CV templates
+│   │   ├── ClassicTemplate.tsx
+│   │   ├── ModernTemplate.tsx
+│   │   ├── CreativeTemplate.tsx
+│   │   ├── MinimalTemplate.tsx
+│   │   └── ExecutiveTemplate.tsx
+│   ├── hooks/              # Custom React hooks
+│   │   └── useCVExport.ts
+│   ├── utils/              # Utility functions
+│   │   └── sample-data.ts
+│   ├── styles/             # Global styles
+│   │   └── globals.css
+│   ├── App.tsx             # Main application component
+│   └── main.tsx            # Application entry point
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+## Usage
+
+1. **Create a Profile**: Click the "+" button in the sidebar to create a new CV profile
+2. **Fill in Your Information**: Use the tabbed forms to enter your personal details, experience, education, etc.
+3. **Upload Photo**: Drag and drop or click to upload your profile photo
+4. **Choose a Template**: Select from 5 professional templates in the sidebar
+5. **Preview in Real-time**: See your CV update live as you type
+6. **Export**: Use the export buttons to download as PDF, PNG, or print directly
+
+## Data Structure
+
+All CV data follows strict TypeScript interfaces:
+
+```typescript
+interface CVProfile {
+  id: string;
+  name: string;
+  data: CVData;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface CVData {
+  personal: PersonalData;
+  education: EducationItem[];
+  experience: ExperienceItem[];
+  skills: SkillItem[];
+  projects: ProjectItem[];
+  certifications: CertificationItem[];
+  languages: LanguageItem[];
+  hobbies: HobbyItem[];
+}
+```
+
+## Features in Detail
+
+### Photo Upload
+- Supports drag-and-drop and file picker
+- Automatically resizes to 400x500px
+- Stores as base64 in localStorage
+- Preview and remove functionality
+
+### Template System
+Each template is a separate React component that receives the CV data and renders it with unique styling. Templates are designed to be:
+- ATS-friendly (especially Classic template)
+- Print-optimized (A4 format)
+- Professionally designed
+- Fully responsive
+
+### Export System
+- **PDF Export**: Uses html2canvas to render the CV as an image, then jsPDF to create a PDF
+- **PNG Export**: High-quality image export at 2x resolution
+- **Print**: Opens a print-optimized view in a new window
+
+### State Management
+Uses Zustand with localStorage persistence middleware for:
+- Profile management (CRUD operations)
+- Template selection
+- Dark mode preference
+- Auto-save functionality
+
+## Accessibility
+
+- WCAG 2.1 AA compliant
+- Keyboard navigation support
+- Screen reader friendly
+- High contrast support in dark mode
+
+## Performance
+
+- Lazy loading for templates
+- Optimized re-renders with React hooks
+- Efficient state updates with Zustand
+- Debounced input handling
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers
+
+## Contributing
+
+This is a complete, production-ready application. Feel free to fork and customize for your needs.
+
+## License
+
+MIT License - feel free to use for personal or commercial projects.
+
+## Sample Data
+
+The application comes pre-loaded with sample data for a "Software Engineer Profile" to help you get started quickly.
+
+## Future Enhancements
+
+Potential features for future versions:
+- Cloud sync with backend integration
+- Collaborative editing
+- More templates
+- AI-powered content suggestions
+- Multi-language support
+- Custom color themes
+- Section reordering via drag-and-drop
+
+---
+
+Built with ❤️ using React, TypeScript, and modern web technologies.

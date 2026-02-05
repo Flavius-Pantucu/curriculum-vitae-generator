@@ -1,25 +1,28 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "CV Builder Pro",
+  "short_name": "CV Builder",
+  "description": "Professional CV/Resume Builder - Create stunning resumes with multiple templates",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/vite.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "categories": ["productivity", "business"],
+  "shortcuts": [
+    {
+      "name": "Create New CV",
+      "short_name": "New CV",
+      "description": "Start creating a new CV profile",
+      "url": "/?action=new",
+      "icons": [{ "src": "/vite.svg", "sizes": "32x32" }]
+    }
+  ]
 }
